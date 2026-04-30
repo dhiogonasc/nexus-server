@@ -3,11 +3,11 @@ package com.nexus.nexusrpg.domain.mission.mapper;
 import com.nexus.nexusrpg.common.dto.EntityDynamicSummary;
 import com.nexus.nexusrpg.common.mapper.ExecutionMapper;
 import com.nexus.nexusrpg.common.mapper.Mapper;
+import com.nexus.nexusrpg.domain.attempt.question.QuestionDTO;
+import com.nexus.nexusrpg.domain.attempt.question.QuestionMapper;
 import com.nexus.nexusrpg.domain.mission.MissionDetailDTO;
 import com.nexus.nexusrpg.domain.mission.model.UserMission;
 import com.nexus.nexusrpg.domain.planet.mapper.PlanetDynamicSummaryMapper;
-import com.nexus.nexusrpg.domain.question.QuestionDTO;
-import com.nexus.nexusrpg.domain.question.QuestionMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

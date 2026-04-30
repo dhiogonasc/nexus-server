@@ -2,8 +2,8 @@ package com.nexus.nexusrpg.domain.attempt;
 
 import com.nexus.nexusrpg.common.dto.EntityDynamicSummary;
 import com.nexus.nexusrpg.common.mapper.Mapper;
-import com.nexus.nexusrpg.domain.answer.AnswerDTO;
-import com.nexus.nexusrpg.domain.answer.AnswerMapper;
+import com.nexus.nexusrpg.domain.attempt.answer.AnswerDTO;
+import com.nexus.nexusrpg.domain.attempt.answer.AnswerMapper;
 import com.nexus.nexusrpg.domain.mission.mapper.MissionDynamicSummaryMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

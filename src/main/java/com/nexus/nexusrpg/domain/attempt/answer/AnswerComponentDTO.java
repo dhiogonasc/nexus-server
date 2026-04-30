@@ -1,4 +1,4 @@
-package com.nexus.nexusrpg.domain.answer;
+package com.nexus.nexusrpg.domain.attempt.answer;
 
 public record AnswerComponentDTO(
         Long id,

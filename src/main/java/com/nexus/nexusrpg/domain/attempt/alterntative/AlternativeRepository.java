@@ -1,4 +1,4 @@
-package com.nexus.nexusrpg.domain.alterntative;
+package com.nexus.nexusrpg.domain.attempt.alterntative;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

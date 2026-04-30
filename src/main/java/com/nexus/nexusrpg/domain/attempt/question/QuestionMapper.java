@@ -1,8 +1,8 @@
-package com.nexus.nexusrpg.domain.question;
+package com.nexus.nexusrpg.domain.attempt.question;
 
 import com.nexus.nexusrpg.common.mapper.Mapper;
-import com.nexus.nexusrpg.domain.answer.AnswerComponentDTO;
-import com.nexus.nexusrpg.domain.answer.AnswerComponentMapper;
+import com.nexus.nexusrpg.domain.attempt.answer.AnswerComponentDTO;
+import com.nexus.nexusrpg.domain.attempt.answer.AnswerComponentMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

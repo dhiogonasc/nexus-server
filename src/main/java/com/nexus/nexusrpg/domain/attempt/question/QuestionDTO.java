@@ -1,6 +1,6 @@
-package com.nexus.nexusrpg.domain.question;
+package com.nexus.nexusrpg.domain.attempt.question;
 
-import com.nexus.nexusrpg.domain.answer.AnswerComponentDTO;
+import com.nexus.nexusrpg.domain.attempt.answer.AnswerComponentDTO;
 
 import java.util.List;
 

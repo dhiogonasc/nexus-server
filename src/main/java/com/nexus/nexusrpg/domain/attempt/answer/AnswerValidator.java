@@ -1,9 +1,9 @@
-package com.nexus.nexusrpg.domain.answer;
+package com.nexus.nexusrpg.domain.attempt.answer;
 
 import com.nexus.nexusrpg.core.exception.BusinessException;
-import com.nexus.nexusrpg.domain.alterntative.Alternative;
 import com.nexus.nexusrpg.domain.attempt.Attempt;
-import com.nexus.nexusrpg.domain.question.Question;
+import com.nexus.nexusrpg.domain.attempt.alterntative.Alternative;
+import com.nexus.nexusrpg.domain.attempt.question.Question;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

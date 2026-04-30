@@ -2,7 +2,7 @@ package com.nexus.nexusrpg.domain.mission;
 
 import com.nexus.nexusrpg.common.dto.EntityDetail;
 import com.nexus.nexusrpg.common.dto.EntityDynamicSummary;
-import com.nexus.nexusrpg.domain.question.QuestionDTO;
+import com.nexus.nexusrpg.domain.attempt.question.QuestionDTO;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 

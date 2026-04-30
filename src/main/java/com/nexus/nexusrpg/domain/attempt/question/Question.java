@@ -1,7 +1,7 @@
-package com.nexus.nexusrpg.domain.question;
+package com.nexus.nexusrpg.domain.attempt.question;
 
 import com.nexus.nexusrpg.common.contract.AnswerComponent;
-import com.nexus.nexusrpg.domain.alterntative.Alternative;
+import com.nexus.nexusrpg.domain.attempt.alterntative.Alternative;
 import com.nexus.nexusrpg.domain.mission.model.Mission;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

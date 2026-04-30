@@ -1,0 +1,311 @@
+{
+  "info": {
+    "name": "nexus",
+    "description": null,
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{server_url}}/auth/login",
+              "protocol": "",
+              "host": [
+                "{{server_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"email@email.com\",\n  \"password\": 123456\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "const loginRes = pm.response.json();",
+                  "pm.variables.set(\"access_token\", loginRes.accessToken);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{server_url}}/auth/register",
+              "protocol": "",
+              "host": [
+                "{{server_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"email@email.com\",\n  \"username\": \"username\",\n  \"password\": 123456\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "me",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{server_url}}/me",
+              "protocol": "",
+              "host": [
+                "{{server_url}}"
+              ],
+              "path": [
+                "me"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "planet",
+      "item": [
+        {
+          "name": "fetch all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{server_url}}/planets",
+              "protocol": "",
+              "host": [
+                "{{server_url}}"
+              ],
+              "path": [
+                "planets"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        },
+        {
+          "name": "fetch by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{server_url}}/planets/{{planet_id}}",
+              "protocol": "",
+              "host": [
+                "{{server_url}}"
+              ],
+              "path": [
+                "planets",
+                "{{planet_id}}"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "mission",
+      "item": [
+        {
+          "name": "attempt",
+          "item": [
+            {
+              "name": "start",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "{{server_url}}/attempts",
+                  "protocol": "",
+                  "host": [
+                    "{{server_url}}"
+                  ],
+                  "path": [
+                    "attempts"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"missionId\": {{mission_id}}\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "finish",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "auth": {
+                  "type": "noauth"
+                },
+                "description": "",
+                "url": {
+                  "raw": "{{server_url}}/attempts/{{attempt_id}}/finish",
+                  "protocol": "",
+                  "host": [
+                    "{{server_url}}"
+                  ],
+                  "path": [
+                    "attempts",
+                    "{{attempt_id}}",
+                    "finish"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"questionId\": 1,\n    \"alternativeId\": 3\n  },\n  {\n    \"questionId\": 2,\n    \"alternativeId\": 8\n  },\n  {\n    \"questionId\": 3,\n    \"alternativeId\": 12\n  },\n  {\n    \"questionId\": 4,\n    \"alternativeId\": 17\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "fetch by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{server_url}}/missions/{{mission_id}}",
+              "protocol": "",
+              "host": [
+                "{{server_url}}"
+              ],
+              "path": [
+                "missions",
+                "{{mission_id}}"
+              ],
+              "query": [],
+              "variable": []
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "server_url",
+      "value": "http://localhost:8080",
+      "type": "default"
+    },
+    {
+      "key": "access_token",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "planet_id",
+      "value": "1",
+      "type": "default"
+    },
+    {
+      "key": "mission_id",
+      "value": "1",
+      "type": "default"
+    },
+    {
+      "key": "attempt_id",
+      "value": "1",
+      "type": "default"
+    },
+    {
+      "key": "server-url",
+      "value": "",
+      "type": "default"
+    },
+    {
+      "key": "access-token",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}

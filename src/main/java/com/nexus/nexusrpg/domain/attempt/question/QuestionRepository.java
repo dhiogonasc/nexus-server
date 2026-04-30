@@ -1,4 +1,4 @@
-package com.nexus.nexusrpg.domain.question;
+package com.nexus.nexusrpg.domain.attempt.question;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

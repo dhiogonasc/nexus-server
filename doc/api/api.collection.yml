@@ -1,0 +1,226 @@
+opencollection: 1.0.0
+info:
+  name: nexus
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ''
+      port: ''
+      auth:
+        username: ''
+        password: ''
+      bypassProxy: ''
+items:
+  - info:
+      name: auth
+      type: folder
+      seq: 1
+    items:
+      - info:
+          name: login
+          type: http
+          seq: 1
+        http:
+          method: POST
+          url: '{{server_url}}/auth/login'
+          body:
+            type: json
+            data: |-
+              {
+                "email": "email@email.com",
+                "password": 123456
+              }
+          auth: inherit
+        runtime:
+          scripts:
+            - type: after-response
+              code: |-
+                const loginRes = res.getBody();
+                bru.setVar("access_token", loginRes.accessToken);
+        settings:
+          encodeUrl: true
+          timeout: 0
+          followRedirects: true
+          maxRedirects: 5
+      - info:
+          name: register
+          type: http
+          seq: 2
+        http:
+          method: POST
+          url: '{{server_url}}/auth/register'
+          body:
+            type: json
+            data: |-
+              {
+                "email": "email@email.com",
+                "username": "username",
+                "password": 123456
+              }
+          auth: inherit
+        settings:
+          encodeUrl: true
+          timeout: 0
+          followRedirects: true
+          maxRedirects: 5
+  - info:
+      name: user
+      type: folder
+      seq: 2
+    request:
+      auth:
+        type: bearer
+        token: '{{access-token}}'
+    items:
+      - info:
+          name: me
+          type: http
+          seq: 1
+        http:
+          method: GET
+          url: '{{server_url}}/me'
+          auth: inherit
+        settings:
+          encodeUrl: true
+          timeout: 0
+          followRedirects: true
+          maxRedirects: 5
+  - info:
+      name: planet
+      type: folder
+      seq: 3
+    request:
+      auth:
+        type: bearer
+        token: '{{access_token}}'
+    items:
+      - info:
+          name: fetch all
+          type: http
+          seq: 1
+        http:
+          method: GET
+          url: '{{server_url}}/planets'
+          auth: inherit
+        settings:
+          encodeUrl: true
+          timeout: 0
+          followRedirects: true
+          maxRedirects: 5
+      - info:
+          name: fetch by id
+          type: http
+          seq: 2
+        http:
+          method: GET
+          url: '{{server_url}}/planets/{{planet_id}}'
+          auth: inherit
+        settings:
+          encodeUrl: true
+          timeout: 0
+          followRedirects: true
+          maxRedirects: 5
+  - info:
+      name: mission
+      type: folder
+      seq: 4
+    request:
+      auth:
+        type: bearer
+        token: '{{access_token}}'
+    items:
+      - info:
+          name: attempt
+          type: folder
+          seq: 1
+        request:
+          auth: inherit
+        items:
+          - info:
+              name: start
+              type: http
+              seq: 1
+            http:
+              method: POST
+              url: '{{server_url}}/attempts'
+              body:
+                type: json
+                data: |-
+                  {
+                    "missionId": {{mission_id}}
+                  }
+              auth: inherit
+            settings:
+              encodeUrl: true
+              timeout: 0
+              followRedirects: true
+              maxRedirects: 5
+          - info:
+              name: finish
+              type: http
+              seq: 2
+            http:
+              method: POST
+              url: '{{server_url}}/attempts/{{attempt_id}}/finish'
+              body:
+                type: json
+                data: |-
+                  [
+                    {
+                      "questionId": 1,
+                      "alternativeId": 3
+                    },
+                    {
+                      "questionId": 2,
+                      "alternativeId": 8
+                    },
+                    {
+                      "questionId": 3,
+                      "alternativeId": 12
+                    },
+                    {
+                      "questionId": 4,
+                      "alternativeId": 17
+                    }
+                  ]
+              auth: inherit
+            settings:
+              encodeUrl: true
+              timeout: 0
+              followRedirects: true
+              maxRedirects: 5
+      - info:
+          name: fetch by id
+          type: http
+          seq: 2
+        http:
+          method: GET
+          url: '{{server_url}}/missions/{{mission_id}}'
+          auth: inherit
+        settings:
+          encodeUrl: true
+          timeout: 0
+          followRedirects: true
+          maxRedirects: 5
+request:
+  variables:
+    - name: server_url
+      value: http://localhost:8080
+    - name: access_token
+      value: ''
+    - name: planet_id
+      value: '1'
+    - name: mission_id
+      value: '1'
+    - name: attempt_id
+      value: '1'
+bundled: true
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
+    exportedAt: '2026-04-30T19:00:14.094Z'
+    exportedUsing: Bruno

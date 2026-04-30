@@ -1,4 +1,4 @@
-package com.nexus.nexusrpg.domain.answer;
+package com.nexus.nexusrpg.domain.attempt.answer;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

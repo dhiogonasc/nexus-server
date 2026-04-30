@@ -1,6 +1,6 @@
 package com.nexus.nexusrpg.domain.attempt;
 
-import com.nexus.nexusrpg.domain.answer.Answer;
+import com.nexus.nexusrpg.domain.attempt.answer.Answer;
 import com.nexus.nexusrpg.domain.mission.model.UserMission;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

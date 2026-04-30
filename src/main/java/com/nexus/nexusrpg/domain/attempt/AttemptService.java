@@ -2,8 +2,8 @@ package com.nexus.nexusrpg.domain.attempt;
 
 import com.nexus.nexusrpg.common.Context;
 import com.nexus.nexusrpg.domain.GlobalProgressService;
-import com.nexus.nexusrpg.domain.answer.Answer;
-import com.nexus.nexusrpg.domain.answer.AnswerMapper;
+import com.nexus.nexusrpg.domain.attempt.answer.Answer;
+import com.nexus.nexusrpg.domain.attempt.answer.AnswerMapper;
 import com.nexus.nexusrpg.domain.mission.MissionValidator;
 import com.nexus.nexusrpg.domain.mission.model.UserMission;
 import com.nexus.nexusrpg.domain.mission.repository.UserMissionRepository;

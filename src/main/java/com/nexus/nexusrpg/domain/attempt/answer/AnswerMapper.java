@@ -1,9 +1,9 @@
-package com.nexus.nexusrpg.domain.answer;
+package com.nexus.nexusrpg.domain.attempt.answer;
 
 import com.nexus.nexusrpg.common.mapper.Mapper;
-import com.nexus.nexusrpg.domain.alterntative.AlternativeRepository;
 import com.nexus.nexusrpg.domain.attempt.Attempt;
-import com.nexus.nexusrpg.domain.question.QuestionRepository;
+import com.nexus.nexusrpg.domain.attempt.alterntative.AlternativeRepository;
+import com.nexus.nexusrpg.domain.attempt.question.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

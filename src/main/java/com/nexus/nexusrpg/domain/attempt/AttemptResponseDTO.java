@@ -2,7 +2,7 @@ package com.nexus.nexusrpg.domain.attempt;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.nexus.nexusrpg.common.dto.EntityDynamicSummary;
-import com.nexus.nexusrpg.domain.answer.AnswerDTO;
+import com.nexus.nexusrpg.domain.attempt.answer.AnswerDTO;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

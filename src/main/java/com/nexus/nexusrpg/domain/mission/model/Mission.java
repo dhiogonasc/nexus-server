@@ -2,8 +2,8 @@ package com.nexus.nexusrpg.domain.mission.model;
 
 import com.nexus.nexusrpg.common.contract.Orientable;
 import com.nexus.nexusrpg.common.contract.Rewardable;
+import com.nexus.nexusrpg.domain.attempt.question.Question;
 import com.nexus.nexusrpg.domain.planet.model.Planet;
-import com.nexus.nexusrpg.domain.question.Question;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
