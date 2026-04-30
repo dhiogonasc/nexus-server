@@ -1,8 +1,6 @@
 package com.nexus.nexusrpg.common.dto;
 
-import com.nexus.nexusrpg.common.task.ExecutionDTO;
-import com.nexus.nexusrpg.common.task.Task;
-import com.nexus.nexusrpg.domain.model.enums.EntityStatus;
+import com.nexus.nexusrpg.common.EntityStatus;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -10,16 +8,16 @@ import lombok.experimental.SuperBuilder;
 @Data
 @SuperBuilder
 @RequiredArgsConstructor
-public abstract class EntityDetail implements DynamicReference, Task {
+public abstract class EntityDetail implements DynamicSummary, Task {
 
     private final Long id;
     private final String name;
     private final String description;
     private final int order;
-    private final ExecutionDTO execution;
+    private final Execution execution;
 
     @Override
-    public ExecutionDTO execution() {
+    public Execution execution() {
         return this.execution;
     }
 

@@ -1,14 +1,15 @@
 package com.nexus.nexusrpg.common.service;
 
-import com.nexus.nexusrpg.user.model.User;
+import com.nexus.nexusrpg.common.contract.Initializable;
+import com.nexus.nexusrpg.user.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 @RequiredArgsConstructor
-public abstract class EntityInitService<Entity, UserEntity> implements Initializable {
+public abstract class EntityInitService<E, R> implements Initializable {
 
-    private final JpaRepository<Entity, Long> baseRepository;
-    private final JpaRepository<UserEntity, Long> relationRepository;
+    private final JpaRepository<E, Long> baseRepository;
+    private final JpaRepository<R, Long> relationRepository;
 
     @Override
     public void initialize(User user) {
@@ -22,5 +23,5 @@ public abstract class EntityInitService<Entity, UserEntity> implements Initializ
         relationRepository.saveAll(relations);
     }
 
-    protected abstract UserEntity initRelation(User user, Entity baseEntity);
+    protected abstract R initRelation(User user, E baseE);
 }

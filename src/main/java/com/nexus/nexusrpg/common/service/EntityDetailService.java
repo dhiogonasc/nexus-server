@@ -1,30 +1,24 @@
 package com.nexus.nexusrpg.common.service;
 
-import com.nexus.nexusrpg.common.context.Context;
+import com.nexus.nexusrpg.common.Context;
+import com.nexus.nexusrpg.common.contract.Executable;
+import com.nexus.nexusrpg.common.contract.UserEntityRepository;
 import com.nexus.nexusrpg.common.mapper.Mapper;
-import com.nexus.nexusrpg.domain.repository.relation.UserEntityRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
-public abstract class EntityDetailService<UEntity, UEntityDTO> {
+public abstract class EntityDetailService<E extends Executable, DTO> {
 
     protected final Context context;
-    protected final UserEntityRepository<UEntity> userEntityRepository;
-    protected final Mapper<UEntity, UEntityDTO> mapper;
+    protected final UserEntityRepository<E> repository;
+    protected final Mapper<E, DTO> mapper;
+    protected final EntityAccessValidator<E> validator;
 
     @Transactional(readOnly = true)
-    public UEntityDTO getById(Long id) {
-
-        var user = context.getAuthenticatedUser();
-
-        UEntity uEntity = userEntityRepository
-                .findByUserIdAndEntityId(user.getId(), id);
-
-        validate(uEntity);
-
-        return mapper.map(uEntity);
+    public DTO getById(Long id) {
+        E e = repository.findByUserIdAndEntityId(context.getAuthenticatedUser().getId(), id);
+        validator.isAccessible(e);
+        return mapper.map(e);
     }
-
-    protected abstract void validate(UEntity uEntity);
 }

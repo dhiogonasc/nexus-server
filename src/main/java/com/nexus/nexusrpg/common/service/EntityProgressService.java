@@ -1,8 +1,8 @@
 package com.nexus.nexusrpg.common.service;
 
-import com.nexus.nexusrpg.domain.model.enums.EntityStatus;
-import com.nexus.nexusrpg.domain.model.relation.Orientable;
-import com.nexus.nexusrpg.domain.model.relation.Usable;
+import com.nexus.nexusrpg.common.EntityStatus;
+import com.nexus.nexusrpg.common.contract.Orientable;
+import com.nexus.nexusrpg.common.contract.Usable;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import static com.nexus.nexusrpg.domain.model.enums.EntityStatus.LOCKED;
-import static com.nexus.nexusrpg.domain.model.enums.EntityStatus.UNLOCKED;
+import static com.nexus.nexusrpg.common.EntityStatus.LOCKED;
+import static com.nexus.nexusrpg.common.EntityStatus.UNLOCKED;
 
 @Service
 @RequiredArgsConstructor
