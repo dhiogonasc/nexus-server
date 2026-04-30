@@ -28,7 +28,7 @@ public interface UserPlanetRepository extends JpaRepository<UserPlanet, Long>, U
     }
 
     @Query("SELECT up " +
-            "FROM UPlanet up " +
+            "FROM UserPlanet up " +
             "JOIN FETCH up.planet " +
             "WHERE up.user.id = :userId " +
             "AND up.planet.id = :entityId")
