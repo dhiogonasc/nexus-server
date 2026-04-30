@@ -35,7 +35,7 @@ public interface UserPlanetRepository extends JpaRepository<UserPlanet, Long>, U
     Optional<UserPlanet> findUEntity(@Param("userId") Long userId, @Param("entityId") Long entityId);
 
     @Query("SELECT up " +
-            "FROM UPlanet up " +
+            "FROM UserPlanet up " +
             "JOIN FETCH up.planet " +
             "WHERE up.user.id = :userId " +
             "AND up.planet.order = :planetOrder")

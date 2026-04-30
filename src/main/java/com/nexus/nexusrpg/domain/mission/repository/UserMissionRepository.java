@@ -28,14 +28,14 @@ public interface UserMissionRepository extends JpaRepository<UserMission, Long>,
     }
 
     @Query("SELECT um " +
-            "FROM UMission um " +
+            "FROM UserMission um " +
             "JOIN FETCH um.mission " +
             "WHERE um.user.id = :userId " +
             "AND um.mission.id = :entityId")
     Optional<UserMission> findUEntity(@Param("userId") Long userId, @Param("entityId") Long entityId);
 
     @Query("SELECT um " +
-            "FROM UMission um " +
+            "FROM UserMission um " +
             "JOIN FETCH um.mission " +
             "WHERE um.user.id = :userId " +
             "AND um.mission.planet.id = :planetId " +
