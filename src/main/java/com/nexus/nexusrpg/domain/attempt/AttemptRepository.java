@@ -10,9 +10,9 @@ public interface AttemptRepository extends JpaRepository<Attempt, Long> {
 
     @Query("SELECT COUNT(a) > 0 " +
             "FROM Attempt a" +
-            " WHERE a.uMission.id = :uMissionId " +
+            " WHERE a.userMission.id = :userMissionId " +
             "AND a.endAt IS NULL")
-    boolean existsByUMissionIdAndEndAtIsNull(Long uMissionId);
+    boolean existsByUMissionIdAndEndAtIsNull(Long userMissionId);
 
     default Attempt findByIdOrThrow(Long id){
      return findById(id)
